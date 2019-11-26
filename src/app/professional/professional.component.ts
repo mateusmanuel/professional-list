@@ -1,17 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog, MatTable } from '@angular/material';
 import { DialogBoxComponent } from './dialog-box/dialog-box.component';
+import { Professional } from './model/professional';
+import { Service } from './model/service';
 
-export interface UsersData {
-  name: string;
-  id: number;
-}
-
-const ELEMENT_DATA: UsersData[] = [
-  {id: 1560608769632, name: 'Artificial Intelligence'},
-  {id: 1560608796014, name: 'Machine Learning'},
-  {id: 1560608787815, name: 'Robotic Process Automation'},
-  {id: 1560608805101, name: 'Blockchain'}
+const ELEMENT_DATA: Professional[] = [
+  {id: 1, name: 'Éber Moreira', email: 'eber@unb.br', phone: '3107-0023', rating: 5.0, enable: true, services: []}
 ];
 
 @Component({
@@ -21,7 +15,7 @@ const ELEMENT_DATA: UsersData[] = [
 })
 export class ProfessionalComponent implements OnInit {
 
-  displayedColumns: string[] = ['id', 'name', 'action'];
+  displayedColumns: string[] = ['id', 'name', 'phone', 'rating', 'enable', 'action'];
   dataSource = ELEMENT_DATA;
 
   ngOnInit() {

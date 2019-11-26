@@ -8,7 +8,9 @@ import {
   MatDialogModule,
   MatFormFieldModule,
   MatInputModule,
-  MatButtonModule
+  MatButtonModule,
+  MatIconModule,
+  MatSlideToggleModule
 } from '@angular/material';
 
 import { ProfessionalComponent } from './professional.component';
@@ -27,7 +29,9 @@ import { DialogBoxComponent } from './dialog-box/dialog-box.component';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    MatInputModule
+    MatInputModule,
+    MatIconModule,
+    MatSlideToggleModule
   ],
   entryComponents: [
     DialogBoxComponent
