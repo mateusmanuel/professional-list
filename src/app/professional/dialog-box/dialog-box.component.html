@@ -1,13 +1,14 @@
-<h1 mat-dialog-title>Row Action :: <strong>{{action}}</strong></h1>
+<h1 mat-dialog-title><strong>{{action}}</strong></h1>
 <div mat-dialog-content>
-  <mat-form-field *ngIf="action != 'Delete'; else elseTemplate">
-    <input placeholder="{{action}} Name" matInput [(ngModel)]="localData.name">
+  <mat-form-field *ngIf="action != 'Excluir'; else elseTemplate">
+    <input placeholder="{{action}} Nome" matInput [(ngModel)]="localData.name">
+    <input placeholder="{{action}} Email" matInput [(ngModel)]="localData.email">
   </mat-form-field>
   <ng-template #elseTemplate>
-    Sure to delete <b>{{localData.name}}</b>?
+    Certeza da exclusão de <b>{{localData.name}}</b>?
   </ng-template>
 </div>
 <div mat-dialog-actions>
   <button mat-button (click)="doAction()">{{action}}</button>
-  <button mat-button (click)="closeDialog()" mat-flat-button color="warn">Cancel</button>
+  <button mat-button (click)="closeDialog()" mat-flat-button color="warn">Cancelar</button>
 </div>

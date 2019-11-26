@@ -34,11 +34,11 @@ export class ProfessionalComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      if (result.event === 'Add') {
+      if (result.event === 'Adicionar') {
         this.addRowData(result.data);
-      } else if (result.event === 'Update') {
+      } else if (result.event === 'Atualizar') {
         this.updateRowData(result.data);
-      } else if (result.event === 'Delete') {
+      } else if (result.event === 'Excluir') {
         this.deleteRowData(result.data);
       }
     });

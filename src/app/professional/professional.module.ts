@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import {
   MatTableModule,
@@ -10,7 +10,8 @@ import {
   MatInputModule,
   MatButtonModule,
   MatIconModule,
-  MatSlideToggleModule
+  MatSlideToggleModule,
+  MatSnackBarModule
 } from '@angular/material';
 
 import { ProfessionalComponent } from './professional.component';
@@ -24,6 +25,7 @@ import { DialogBoxComponent } from './dialog-box/dialog-box.component';
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     MatTableModule,
     MatDialogModule,
     MatFormFieldModule,
@@ -31,7 +33,8 @@ import { DialogBoxComponent } from './dialog-box/dialog-box.component';
     MatButtonModule,
     MatInputModule,
     MatIconModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatSnackBarModule
   ],
   entryComponents: [
     DialogBoxComponent
