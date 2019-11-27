@@ -8,4 +8,5 @@ export class Professional {
     rating: number;
     enable: boolean;
     services: Service[];
+    action?: string; // To dialog action
 }

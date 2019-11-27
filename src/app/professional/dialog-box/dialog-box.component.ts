@@ -23,24 +23,39 @@ export class DialogBoxComponent {
     private formBuilder: FormBuilder,
     private snackBar: MatSnackBar) {
 
-    console.log(data);
-    this.localData = {...data};
-    this.action = this.localData.action;
+    this.action = this.data.action; // Plus property to define action
 
     this.professional = this.formBuilder.group({
+      id: new FormControl(this.data.id),
       name: new FormControl(this.data.name, [Validators.required, Validators.maxLength(50)]),
       email: new FormControl(this.data.email, [Validators.required, Validators.email]),
-      phone: new FormControl(this.data.phone, [Validators.required, Validators.pattern(/\(\d\d\)\d\.\d\d\d\d\-\d\d\d\d/)]),
-      rating: new FormControl(this.data.rating, Validators.required),
-      services: new FormControl(this.data.services, Validators.required)
+      phone: new FormControl(this.data.phone, Validators.required),
+      rating: new FormControl(this.data.rating),
+      services: new FormControl(this.data.services)
     });
   }
 
   doAction() {
-    this.dialogRef.close({event: this.action, data: this.localData});
+    this.dialogRef.close({event: this.action, data: this.professional.value});
   }
 
   closeDialog() {
     this.dialogRef.close({event: 'Cancel'});
+  }
+
+  get name() {
+    return this.professional.get('name') as FormControl;
+  }
+
+  get email() {
+    return this.professional.get('email') as FormControl;
+  }
+
+  get phone() {
+    return this.professional.get('phone') as FormControl;
+  }
+
+  getMsgRequired() {
+    return 'Campo obrigatório';
   }
 }

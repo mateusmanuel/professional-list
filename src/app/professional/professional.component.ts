@@ -29,7 +29,7 @@ export class ProfessionalComponent implements OnInit {
   openDialog(action, obj) {
     obj.action = action;
     const dialogRef = this.dialog.open(DialogBoxComponent, {
-      width: '250px',
+      width: '500px',
       data: obj
     });
 
@@ -45,18 +45,29 @@ export class ProfessionalComponent implements OnInit {
   }
 
   addRowData(rowObj) {
-    const d = new Date();
+    // Call to service
     this.dataSource.push({
-      id: d.getTime(),
-      name: rowObj.name
+      id: this.dataSource[this.dataSource.length - 1].id + 1,
+      name: rowObj.name,
+      phone: rowObj.phone,
+      email: rowObj.email,
+      rating: rowObj.rating,
+      enable: true,
+      services: []
     });
     this.table.renderRows();
 
   }
   updateRowData(rowObj) {
+    // Call to service
     this.dataSource = this.dataSource.filter((value, key) => {
       if (value.id === rowObj.id) {
         value.name = rowObj.name;
+        value.phone = rowObj.phone;
+        value.email = rowObj.email;
+        value.rating = rowObj.rating;
+        value.enable = rowObj.enable;
+        value.services = rowObj.services;
       }
       return true;
     });

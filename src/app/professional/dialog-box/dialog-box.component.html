@@ -1,14 +1,35 @@
 <h1 mat-dialog-title><strong>{{action}}</strong></h1>
 <div mat-dialog-content>
-  <mat-form-field *ngIf="action != 'Excluir'; else elseTemplate">
+  <!-- <mat-form-field *ngIf="action != 'Excluir'; else elseTemplate">
     <input placeholder="{{action}} Nome" matInput [(ngModel)]="localData.name">
     <input placeholder="{{action}} Email" matInput [(ngModel)]="localData.email">
-  </mat-form-field>
-  <ng-template #elseTemplate>
-    Certeza da exclusão de <b>{{localData.name}}</b>?
-  </ng-template>
+  </mat-form-field> -->
+
+  <form [formGroup]="professional" class="container" *ngIf="action != 'Excluir'; else elseTemplate">
+        <mat-form-field >
+            <input matInput formControlName="name" required placeholder="Nome">
+            <mat-error *ngIf="(name.dirty || name.touched) && name.invalid && name.errors.required">{{getMsgRequired()}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field >
+            <input matInput formControlName="email" required placeholder="E-mail" type="email">
+            <mat-error *ngIf="(email.dirty || email.touched) && email.invalid && email.errors.required">{{getMsgRequired()}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field >
+            <input matInput formControlName="phone" required placeholder="Telefone">
+            <mat-error *ngIf="(phone.dirty || phone.touched) && phone.invalid && phone.errors.required">{{getMsgRequired()}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field >
+            <input matInput formControlName="rating" placeholder="Avaliação" type="number">
+        </mat-form-field>
+    </form>
+    <ng-template #elseTemplate>
+        Certeza da exclusão de <b>{{ professional.value.name }}</b>?
+    </ng-template>
 </div>
 <div mat-dialog-actions>
-  <button mat-button (click)="doAction()">{{action}}</button>
+  <button mat-button (click)="doAction()" [disabled]="action == 'Adicionar' && !professional.valid">{{action}}</button>
   <button mat-button (click)="closeDialog()" mat-flat-button color="warn">Cancelar</button>
 </div>
