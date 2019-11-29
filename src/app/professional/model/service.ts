@@ -1,4 +1,8 @@
 export class Service {
     id: number;
-    description: string;
+    nome: string;
+    duracao: number;
+    valor: number;
+    idSalao: number;
+    status: number;
 }

@@ -17,12 +17,18 @@
         </mat-form-field>
 
         <mat-form-field >
-            <input matInput formControlName="phone" required placeholder="Telefone">
+            <input matInput formControlName="phone" required placeholder="Telefone" [textMask]="{mask: phoneMask}" >
             <mat-error *ngIf="(phone.dirty || phone.touched) && phone.invalid && phone.errors.required">{{getMsgRequired()}}</mat-error>
         </mat-form-field>
 
         <mat-form-field >
             <input matInput formControlName="rating" placeholder="Avaliação" type="number">
+        </mat-form-field>
+
+        <mat-form-field >
+            <mat-select [compareWith]="compareWithFn" placeholder="Serviços" formControlName="services" multiple>
+                <mat-option *ngFor="let item of services" [value]="item">{{item.nome}}</mat-option>
+            </mat-select>
         </mat-form-field>
     </form>
     <ng-template #elseTemplate>

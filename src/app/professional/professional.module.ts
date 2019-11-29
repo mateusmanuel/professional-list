@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import {
@@ -11,8 +10,10 @@ import {
   MatButtonModule,
   MatIconModule,
   MatSlideToggleModule,
-  MatSnackBarModule
+  MatSnackBarModule,
+  MatSelectModule
 } from '@angular/material';
+import { TextMaskModule } from 'angular2-text-mask';
 
 import { ProfessionalComponent } from './professional.component';
 import { DialogBoxComponent } from './dialog-box/dialog-box.component';
@@ -34,7 +35,9 @@ import { DialogBoxComponent } from './dialog-box/dialog-box.component';
     MatInputModule,
     MatIconModule,
     MatSlideToggleModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatSelectModule,
+    TextMaskModule
   ],
   entryComponents: [
     DialogBoxComponent

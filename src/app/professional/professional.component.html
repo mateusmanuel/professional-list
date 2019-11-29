@@ -34,8 +34,8 @@
       <ng-container matColumnDef="enable">
             <th mat-header-cell *matHeaderCellDef> Habilitado </th>
             <td mat-cell *matCellDef="let element"> 
-                <mat-slide-toggle [(ngModel)]="element.enable">
-                        {{element.enable ? 'Sim' : 'Não'}}
+                <mat-slide-toggle [checked]="element.enable" (change)="changeEnable(element)">
+                  {{element.enable ? 'Sim' : 'Não'}}
                 </mat-slide-toggle>
             </td>
       </ng-container>

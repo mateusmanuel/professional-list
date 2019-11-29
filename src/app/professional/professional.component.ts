@@ -44,8 +44,13 @@ export class ProfessionalComponent implements OnInit {
     });
   }
 
+  changeEnable(element) {
+    element.enable = !element.enable;
+  }
+
   addRowData(rowObj) {
     // Call to service
+    console.log(rowObj);
     this.dataSource.push({
       id: this.dataSource[this.dataSource.length - 1].id + 1,
       name: rowObj.name,
@@ -53,11 +58,12 @@ export class ProfessionalComponent implements OnInit {
       email: rowObj.email,
       rating: rowObj.rating,
       enable: true,
-      services: []
+      services: rowObj.services
     });
     this.table.renderRows();
 
   }
+
   updateRowData(rowObj) {
     // Call to service
     this.dataSource = this.dataSource.filter((value, key) => {
@@ -72,6 +78,7 @@ export class ProfessionalComponent implements OnInit {
       return true;
     });
   }
+
   deleteRowData(rowObj) {
     this.dataSource = this.dataSource.filter((value, key) => {
       return value.id !== rowObj.id;
